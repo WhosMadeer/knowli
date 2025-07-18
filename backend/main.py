@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fileUpload import file_router
 
 app = FastAPI()
+app.include_router(file_router, prefix="/files", tags={"files"})
 
 class Name(BaseModel):
     name: str
