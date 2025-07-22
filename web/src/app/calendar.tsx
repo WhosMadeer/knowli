@@ -21,10 +21,13 @@ return (
             <div className="text-lg font-semibold">
                 <h1>{DaysOfWeek[week]}, {day}</h1>
             </div>
-            <div className=" border-2 p-2 w-400">
+            <div className=" border-2 p-2 w-screen">
+                <div className="w-screen h-10 border-2">
+    
+                </div>
                 {Array.from({ length: 24 }, (_, i) => i + 1).map((hour) => {
                     return (
-                        <div className=" text-black border-2 w-full my-2 p-4">
+                        <div className=" text-black border-2 w-20 my-2 p-4">
                             {hour}
                             {hour > 12 ? 'PM' : 'AM'}
                         </div>
