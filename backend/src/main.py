@@ -1,9 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from files import file_router
-from dotenv import load_dotenv
 
-load_dotenv()
 
 app = FastAPI()
 app.include_router(file_router, prefix="/files", tags={"files"})

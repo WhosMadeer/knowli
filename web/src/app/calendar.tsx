@@ -68,9 +68,9 @@ function CalendarCheckbox() {
 
 
 function CalendarPage() {
-    const today = new Date(); 
-    const day = today.getDate();
-    const week = today.getDay();
+	const today = new Date();
+	const day = today.getDate();
+	const week = today.getDay();
 
     const DaysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']; 
     const [date, setDate] = React.useState<Date | undefined>(new Date())
