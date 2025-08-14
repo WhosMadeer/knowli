@@ -68,9 +68,9 @@ function CalendarCheckbox() {
 
 
 function CalendarPage() {
-	const today = new Date();
-	const day = today.getDate();
-	const week = today.getDay();
+    const today = new Date(); 
+    const day = today.getDate();
+    const week = today.getDay();
 
     const DaysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']; 
     const [date, setDate] = React.useState<Date | undefined>(new Date())
@@ -110,7 +110,12 @@ return (
                     <h1>{DaysOfWeek[week]}, {day}</h1>
                     </div>
                   )}
-                    
+
+
+                <div className="">
+                  <h1>My Subjects</h1>
+                </div>
+
 
                 <div className=" border-2 p-2 w-screen border-white">
                     {view === "Day" && Array.from({ length: 24 }, (_, i) => i + 1).map((hour) => {
@@ -150,7 +155,6 @@ function WeekPage ({date, setDate}: {date: Date | undefined, setDate: React.Disp
 
                 <div className="flex flex-row gap-2 font-semibold text-xl p-2">
                 {date && Array.from({ length: 7}, (_, i) => i).map((i) => {
-                    // const date = new Date(today); 
                     date.setDate(date.getDate() + i); 
 
                     return (
@@ -188,35 +192,44 @@ function MonthPage({date, setDate}: {date: Date | undefined, setDate: React.Disp
   if (date === undefined) {
     return <div>No date</div>
   }
-  
+
   const today = new Date();
   const month = date.getMonth(); 
   const year = date.getFullYear();   
 
 
-
-
-
     const DaysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
     const daysInMonths = [31, (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) 
     ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    
 
+    const daysInMonth = daysInMonths[month];
+    
 
       return (
 
+                <>
                 <div className="flex flex-row gap-2 font-semibold text-xl p-2">
-                {date && Array.from({ length: 7}, (_, i) => i).map((i) => {
-                    // const date = new Date(today); 
-                    date.setDate(date.getDate() + i); 
+                {date && Array.from({ length: 7 }, (_, i) => i).map((i) => {
+              date.setDate(date.getDate() + i);
 
-                    return (
-                        <div className="border-2 p-4 ml-20 h-400 w-40 text-center">
-                        {DaysOfWeek[date.getDay()]} {date.getDate()}
-                        </div>
-                    ); 
-                })}
-                </div>      
+            return (
+              <div className="border-2 p-4 ml-20 h-400 w-40 text-center">
+                {DaysOfWeek[date.getDay()]} {date.getDate()}
+              </div>
+            );
+          })}
+            </div>
+        
+        <div className="">
+            {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((i) => {
+              return (
+                <div className="border-1">
+                  {i}
+                </div>
+              );
+            })}
+          </div>
+          </>
       )
 }
 
