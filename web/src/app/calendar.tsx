@@ -220,10 +220,10 @@ function MonthPage({date, setDate}: {date: Date | undefined, setDate: React.Disp
           })}
             </div>
         
-        <div className="">
+        <div className="-mt-370">
             {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((i) => {
               return (
-                <div className="border-1">
+                <div className="border-1 size-40 text-center grid-cols-7">
                   {i}
                 </div>
               );
